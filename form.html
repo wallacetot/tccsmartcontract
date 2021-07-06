@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
   <head>
+<style> body {background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKS7sjlTx8TqJDUDANnnmCFZPBlmJ7SJxXcsOUeygCN6XF-AOHJcfi9dfTxD_vmUuWm98&usqp=CAU);
+background-color: rgb(105, 105, 105);
+</style>
+
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilo-form.css" />
-    <title>Meu formulário</title>
+    <title>Descubra Carros de Formula 1</title>
   </head>
   <body onload="autoLoadOwner()">
     <header>
-      <h1>Meu primeiro formulário</h1>
+      <h1>Preencha abaixo as características dos novos carros</h1>
     </header>
     <section>
       <form action="#" method="POST" name="frmCarros" id="frmCarros">
@@ -33,10 +37,7 @@
       <div>
         <h1>Dados dos Carros</h1>
       </div>
-      <div>
-        <h2>Responsável técnico: <span id="spanOwner"></span></h2>
-      </div>
-      <div>
+           <div>
         Informe os carros por ordem de registro:
         <input type="number" name="contractNumber" id="contractNumber" size="10" min="1" max="99999" />
         <button onclick="getDadosDosCarros()">Buscar Dados</button>
@@ -69,5 +70,8 @@
         console.error(err);
       }
     </script>
+<div>
+    <p>Responsável técnico: <span id="spanOwner"></span></p>
+  </div>
   </body>
 </html>
