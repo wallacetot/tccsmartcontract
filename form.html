@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo-form.css" />
+    <title>Meu formulário</title>
+  </head>
+  <body onload="autoLoadOwner()">
+    <header>
+      <h1>Meu primeiro formulário</h1>
+    </header>
+    <section>
+      <form action="#" method="POST" name="frmCarros" id="frmCarros">
+        <label for="addMarcaCarro">Preencha com a Marca do Carro:</label>
+        <input type="text" name="addMarcaCarro" id="addMarcaCarro" size="45" maxlength="20" required autofocus />
+        <br />
+        <label for="addModeloCarro">Preencha com o Modelo do Carro:</label>
+        <input type="text" name="addModeloCarro" id="addModeloCarro" size="45" maxlength="20" required />
+        <br />
+        <label for="addCorCarro">Escolha a Cor do do Carro:</label>
+        <input type="text" name="addCorCarro" id="addCorCarro" size="100" required />
+        <br />
+        <label for="addVelocidadeMaxima">Velocidade Máxima do Carro (em km/h): </label>
+        <input type="number" name="addVelocidadeMaxima" id="addVelocidadeMaxima" size="10" min="1" max="99999" required />
+        <br />
+        <input type="submit" value="Registrar no Smart Contract" onclick="event.preventDefault(); saveFormData();" />
+      </form>
+    </section>
+    <hr />
+    <section>
+      <div>
+        <h1>Dados dos Carros</h1>
+      </div>
+      <div>
+        <h2>Responsável técnico: <span id="spanOwner"></span></h2>
+      </div>
+      <div>
+        Informe os carros por ordem de registro:
+        <input type="number" name="contractNumber" id="contractNumber" size="10" min="1" max="99999" />
+        <button onclick="getDadosDosCarros()">Buscar Dados</button>
+      </div>
+      <br />
+      <div>Marca do Carro: <span id="marcaCarro"></span></div>
+      <div>Modelo do Carro: <span id="modeloCarro"></span></div>
+      <div>Cor do Carro: <span id="corCarro"></span></div>
+      <div>Velocidade Máxima do Carro (em km/h):<span id="velocidadeMaxima"></span></div>
+    </section>
+    <script
+      type="text/javascript"
+      integrity="sha384-dq8L5gpIcUoGAeHh/6setfxuuDI0ngshPvCvksSAcQMMWCr5cVFAaijT//nxVyjb"
+      crossorigin="anonymous"
+      src="https://cdn-cors.ethers.io/lib/ethers-5.4.0.umd.min.js"
+    ></script>
+    <script src="dado-contrato-no-ethereum.js"></script>
+    <script src="funcoes-contrato-ethereum.js"></script>
+    <script>
+      console.log("Tentando se conectar ao Ethereum via Metamask...");
+      try {
+        const connectionProvider = new ethers.providers.Web3Provider(window.ethereum);
+        const signer = connectionProvider.getSigner();
+        //sc = smart contract
+        smartContract = new ethers.Contract(contractAddress, ABI, connectionProvider);
+        smartContractWithSigner = smartContract.connect(signer);
+        console.log("Conectado ao Smart Contract no Ethereum via Metamask.");
+      } catch (err) {
+        console.log("Erro ao conectar ao Ethereum/Smart Contract...");
+        console.error(err);
+      }
+    </script>
+  </body>
+</html>
