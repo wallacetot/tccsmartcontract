@@ -12,19 +12,17 @@ background-color: rgb(105, 105, 105);
     <title>Descubra Carros de Formula 1</title>
   </head>
   <body onload="autoLoadOwner()">
-    <header>
-      <h1>Preencha abaixo as características dos novos carros</h1>
-    </header>
-    <section>
+  <h1 style="text-align: center;">Preencha abaixo as características dos novos carros</h1>
+     <section>
       <form action="#" method="POST" name="frmCarros" id="frmCarros">
         <label for="addMarcaCarro">Preencha com a Marca do Carro:</label>
-        <input type="text" name="addMarcaCarro" id="addMarcaCarro" size="45" maxlength="20" required autofocus />
+        <input type="text" name="addMarcaCarro" id="addMarcaCarro" size="20" maxlength="20" required autofocus />
         <br />
         <label for="addModeloCarro">Preencha com o Modelo do Carro:</label>
-        <input type="text" name="addModeloCarro" id="addModeloCarro" size="45" maxlength="20" required />
+        <input type="text" name="addModeloCarro" id="addModeloCarro" size="20" maxlength="20" required />
         <br />
         <label for="addCorCarro">Escolha a Cor do do Carro:</label>
-        <input type="text" name="addCorCarro" id="addCorCarro" size="100" required />
+        <input type="text" name="addCorCarro" id="addCorCarro" size="20" required />
         <br />
         <label for="addVelocidadeMaxima">Velocidade Máxima do Carro (em km/h): </label>
         <input type="number" name="addVelocidadeMaxima" id="addVelocidadeMaxima" size="10" min="1" max="99999" required />
@@ -35,7 +33,7 @@ background-color: rgb(105, 105, 105);
     <hr />
     <section>
       <div>
-        <h1>Dados dos Carros</h1>
+        <h1>Dados dos Carros Registrados</h1>
       </div>
            <div>
         Informe os carros por ordem de registro:
@@ -71,7 +69,7 @@ background-color: rgb(105, 105, 105);
       }
     </script>
 <div>
-    <p>Responsável técnico: <span id="spanOwner"></span></p>
+    <p>Responsável por inserir as novas informações: <span id="spanOwner"></span></p>
   </div>
   </body>
 </html>
